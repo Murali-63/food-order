@@ -1,0 +1,3060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madras Thattu - Authentic South Indian Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #FFA502;
+            --accent: #FF793F;
+            --dark: #2F3542;
+            --light: #F1F2F6;
+            --success: #2ED573;
+            --warning: #FF7F50;
+            --info: #1E90FF;
+            --breakfast: #FF9F43;
+            --lunch: #EE5253;
+            --dinner: #5F27CD;
+            --chaat: #10AC84;
+            --drinks: #2E86DE;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #FFF5F5;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes colorChange {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        @keyframes flipInY {
+            from { transform: perspective(400px) rotateY(90deg); opacity: 0; }
+            to { transform: perspective(400px) rotateY(0deg); opacity: 1; }
+        }
+
+        @keyframes rubberBand {
+            from { transform: scale3d(1, 1, 1); }
+            30% { transform: scale3d(1.25, 0.75, 1); }
+            40% { transform: scale3d(0.75, 1.25, 1); }
+            50% { transform: scale3d(1.15, 0.85, 1); }
+            65% { transform: scale3d(0.95, 1.05, 1); }
+            75% { transform: scale3d(1.05, 0.95, 1); }
+            to { transform: scale3d(1, 1, 1); }
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo span {
+            color: #FFD700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+        }
+
+        nav ul li a:hover {
+            color: #FFD700;
+            transform: translateY(-2px);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #FFD700;
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .auth-buttons .btn {
+            margin-left: 15px;
+            padding: 8px 20px;
+            font-size: 14px;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+
+        .auth-buttons .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .auth-buttons .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .auth-buttons .btn-solid {
+            background-color: white;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .auth-buttons .btn-solid:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            margin-left: 20px;
+            transition: all 0.3s;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #FFD700;
+            color: var(--dark);
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1589301760014-d929f3979dbc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.3), rgba(255, 165, 2, 0.3));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            padding: 12px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--accent), var(--primary));
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+
+        .btn:hover::after {
+            opacity: 1;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-1 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        .floating-3 {
+            width: 80px;
+            height: 80px;
+            top: 60%;
+            left: 25%;
+            animation-delay: 2s;
+        }
+
+        /* Food Categories */
+        .categories {
+            padding: 100px 0 60px;
+            background-color: #FFF;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: #7F8C8D;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        .category-tab {
+            padding: 12px 30px;
+            margin: 0 10px 15px;
+            background-color: var(--light);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .category-tab:hover::before {
+            left: 100%;
+        }
+
+        .category-tab.active {
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .category-tab[data-category="breakfast"]:hover:not(.active) {
+            background-color: var(--breakfast);
+            color: white;
+        }
+
+        .category-tab[data-category="lunch"]:hover:not(.active) {
+            background-color: var(--lunch);
+            color: white;
+        }
+
+        .category-tab[data-category="dinner"]:hover:not(.active) {
+            background-color: var(--dinner);
+            color: white;
+        }
+
+        .category-tab[data-category="chaat"]:hover:not(.active) {
+            background-color: var(--chaat);
+            color: white;
+        }
+
+        .category-tab[data-category="drinks"]:hover:not(.active) {
+            background-color: var(--drinks);
+            color: white;
+        }
+
+        .category-tab:hover:not(.active) {
+            transform: translateY(-3px);
+        }
+
+        /* Menu Items */
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            animation: fadeIn 0.8s ease-out 0.4s both;
+        }
+
+        .menu-item {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+            position: relative;
+            border: 1px solid #F5F5F5;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(255, 165, 2, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .menu-item:hover::before {
+            opacity: 1;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .menu-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .item-info {
+            padding: 25px;
+            position: relative;
+        }
+
+        .item-info h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .item-info p {
+            color: #7F8C8D;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .item-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 22px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .price::before {
+            content: '₹';
+            font-size: 18px;
+            margin-right: 2px;
+        }
+
+        .add-to-cart {
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(255, 107, 107, 0.3);
+        }
+
+        .add-to-cart i {
+            margin-right: 8px;
+        }
+
+        .add-to-cart:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Special Badge */
+        .special-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--success);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 1;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
+
+        /* Cart Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(20px);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .modal-header h2 {
+            font-size: 24px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .modal-header h2 i {
+            margin-right: 10px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 20px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .cart-items-container {
+            margin-bottom: 30px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #F1F2F6;
+            transition: all 0.3s;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .cart-item:hover {
+            background-color: #FFF9F9;
+        }
+
+        .cart-item-info {
+            display: flex;
+            align-items: center;
+            width: 40%;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 15px;
+            border: 1px solid #F1F2F6;
+        }
+
+        .cart-item-details h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .cart-item-details p {
+            color: #7F8C8D;
+            font-size: 14px;
+        }
+
+        .cart-item-price {
+            font-weight: bold;
+            color: var(--primary);
+            width: 15%;
+            text-align: center;
+        }
+
+        .cart-item-price::before {
+            content: '₹';
+            font-size: 14px;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            width: 25%;
+            justify-content: center;
+        }
+
+        .quantity-btn {
+            background-color: var(--light);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .quantity-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .quantity {
+            margin: 0 15px;
+            min-width: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #FF4757;
+            cursor: pointer;
+            font-size: 22px;
+            margin-left: 15px;
+            transition: transform 0.3s;
+        }
+
+        .remove-item:hover {
+            transform: scale(1.2);
+        }
+
+        .empty-cart-message {
+            text-align: center;
+            padding: 40px 0;
+            color: #7F8C8D;
+            font-size: 18px;
+        }
+
+        .empty-cart-message i {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: #DFE4EA;
+        }
+
+        /* Delivery Details */
+        .delivery-details {
+            background-color: #F8F9FA;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease-out 0.2s both;
+        }
+
+        .delivery-details h3 {
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .delivery-details h3 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            margin-top: 30px;
+            animation: fadeIn 0.5s ease-out 0.4s both;
+        }
+
+        .payment-methods h3 {
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .payment-methods h3 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .payment-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .payment-option {
+            flex: 1;
+            min-width: 150px;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .payment-option:hover {
+            border-color: var(--primary);
+            background-color: #FFF9F9;
+        }
+
+        .payment-option.active {
+            border-color: var(--primary);
+            background-color: #FFF0F0;
+            animation: rubberBand 0.8s;
+        }
+
+        .payment-option img {
+            height: 30px;
+            margin-bottom: 10px;
+            object-fit: contain;
+        }
+
+        .payment-option p {
+            font-size: 14px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        /* Modal Footer */
+        .modal-footer {
+            padding: 20px;
+            background-color: #F8F9FA;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #E0E0E0;
+        }
+
+        .total-price {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .total-price span {
+            color: var(--primary);
+        }
+
+        .total-price span::before {
+            content: '₹';
+            font-size: 18px;
+        }
+
+        .checkout-btn {
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .checkout-btn i {
+            margin-right: 10px;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Order Confirmation */
+        .order-confirmation {
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .order-confirmation i {
+            font-size: 80px;
+            color: var(--success);
+            margin-bottom: 20px;
+            animation: bounce 1s ease-in-out;
+        }
+
+        .order-confirmation h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .order-confirmation p {
+            font-size: 16px;
+            color: #7F8C8D;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .order-confirmation .order-total {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-top: 20px;
+        }
+
+        /* Auth Modal */
+        .auth-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .auth-modal.show {
+            display: flex;
+        }
+
+        .auth-content {
+            background-color: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(20px);
+            transition: transform 0.3s;
+            animation: flipInY 0.6s ease-out;
+        }
+
+        .auth-modal.show .auth-content {
+            transform: translateY(0);
+        }
+
+        .auth-header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .auth-header h2 {
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .auth-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .auth-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .auth-tabs {
+            display: flex;
+            border-bottom: 1px solid #F1F2F6;
+        }
+
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            color: #7F8C8D;
+            background-color: #FFF;
+        }
+
+        .auth-tab.active {
+            color: var(--primary);
+            background-color: #FFF9F9;
+        }
+
+        .auth-tab::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .auth-tab.active::after {
+            transform: scaleX(1);
+        }
+
+        .auth-body {
+            padding: 30px;
+            background: linear-gradient(135deg, #FFF9F9, #FFF);
+        }
+
+        .auth-form {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: rgba(255,255,255,0.8);
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+        }
+
+        .form-group i {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            color: #7F8C8D;
+        }
+
+        .auth-footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #F1F2F6;
+            margin-top: 20px;
+        }
+
+        .auth-footer p {
+            color: #7F8C8D;
+            margin-bottom: 15px;
+        }
+
+        .auth-toggle {
+            color: var(--primary);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .auth-toggle:hover {
+            text-decoration: underline;
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .auth-btn:hover::before {
+            left: 100%;
+        }
+
+        .login-btn {
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .signup-btn {
+            background: linear-gradient(45deg, var(--dark), #57606F);
+            color: white;
+            border: none;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(47, 53, 66, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2F3542, #1E272E);
+            color: white;
+            padding: 70px 0 30px;
+            position: relative;
+        }
+
+        .footer-wave {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23FFF5F5" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23FFF5F5" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23FFF5F5"/></svg>');
+            background-size: cover;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            color: #FFD700;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .footer-column p {
+            color: #BDC3C7;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links li a {
+            color: #BDC3C7;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links li a i {
+            margin-right: 10px;
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        .footer-links li a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #BDC3C7;
+        }
+
+        .footer-contact li i {
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 18px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #BDC3C7;
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 3000;
+            animation: fadeIn 0.3s ease-out, fadeOut 0.3s ease-out 2.7s forwards;
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 36px;
+            }
+            
+            .menu-items {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .auth-buttons {
+                margin-top: 15px;
+            }
+            
+            .hero {
+                height: 500px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .category-tabs {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .category-tab {
+                margin: 0 8px 10px 0;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .cart-item-info, .cart-item-quantity, .cart-item-price {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .cart-item-quantity {
+                justify-content: flex-start;
+            }
+            
+            .cart-item-price {
+                text-align: left;
+            }
+            
+            .modal-footer {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .btn {
+                padding: 10px 25px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .payment-options {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">Madras <span>Thattu</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li>
+                        <div class="auth-buttons">
+                            <button class="btn btn-outline" id="loginBtn">Login</button>
+                            <button class="btn btn-solid" id="signupBtn" style="color: white;">Sign Up</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cart-icon" id="cartIcon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-element floating-1"></div>
+        <div class="floating-element floating-2"></div>
+        <div class="floating-element floating-3"></div>
+        <div class="container hero-content">
+            <h1>Authentic South Indian Flavors</h1>
+            <p>Experience the rich flavors of South India with every bite—crispy dosas, aromatic sambhar, fluffy idlis, and authentic filter coffee served with warmth, tradition, and homely hospitality."</p>
+            <a href="#menu" class="btn">Explore Menu <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="categories" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Delicious Menu</h2>
+                <p>From crispy dosas to flavorful biryanis, discover our wide range of authentic South Indian dishes</p>
+            </div>
+            
+            <div class="category-tabs">
+                <div class="category-tab active" data-category="chaat">Morning Chaat</div>
+                <div class="category-tab" data-category="breakfast">Breakfast</div>
+                <div class="category-tab" data-category="lunch">Lunch</div>
+                <div class="category-tab" data-category="chaat">Evening Chaat</div>
+                <div class="category-tab" data-category="dinner">Dinner</div>
+                <div class="category-tab" data-category="drinks">Drinks</div>
+            </div>
+            
+            <div class="menu-items" id="menuItems">
+                <!-- Menu items will be added dynamically with JavaScript -->
+            </div>
+        </div>
+    </section>
+    <br><br>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-shopping-cart"></i> Your Food Cart</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="cart-items-container" id="cartItems">
+                    <!-- Cart items will be added dynamically -->
+                    <div class="empty-cart-message">
+                        <i class="fas fa-shopping-basket"></i>
+                        <p>Your cart is empty</p>
+                    </div>
+                </div>
+                
+                <div class="delivery-details" id="deliveryDetails">
+                    <h3><i class="fas fa-truck"></i> Delivery Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="deliveryName">Full Name</label>
+                            <input type="text" id="deliveryName" placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="deliveryPhone">Phone Number</label>
+                            <input type="tel" id="deliveryPhone" placeholder="Enter your phone number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="deliveryAddress">Delivery Address</label>
+                        <textarea id="deliveryAddress" rows="3" placeholder="Enter your complete delivery address"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="deliveryCity">City</label>
+                            <input type="text" id="deliveryCity" placeholder="Enter your city">
+                        </div>
+                        <div class="form-group">
+                            <label for="deliveryPincode">Pincode</label>
+                            <input type="text" id="deliveryPincode" placeholder="Enter pincode">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="deliveryInstructions">Special Instructions</label>
+                        <textarea id="deliveryInstructions" rows="2" placeholder="Any special delivery instructions?"></textarea>
+                    </div>
+                </div>
+                
+                <div class="payment-methods">
+                    <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+                    <div class="payment-options">
+                        <div class="payment-option active">
+                            <img src=https://img.icons8.com/?size=100&id=9RsJFKL7bU03&format=png&color=000000 alt="Cash">
+                            <p>Cash on Delivery</p>
+                        </div>
+                        <div class="payment-option">
+                            <img src=https://img.icons8.com/?size=100&id=0V3sAjgtVc0f&format=png&color=000000 alt="PayTM">
+                            <p>Net Banking</p>
+                        </div>
+                        <div class="payment-option">
+                            <img src=https://img.icons8.com/?size=100&id=112309&format=png&color=000000 alt="UPI">
+                            <p>UPI Payment</p>
+                        </div>
+                        <div class="payment-option">
+                            <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Card">
+                            <p>Credit/Debit Card</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="total-price">
+                    Total: <span id="totalPrice">0.00</span>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">
+                    <i class="fas fa-lock"></i> Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-content">
+            <div class="auth-header">
+                <h2 id="authModalTitle">Welcome Back!</h2>
+                <button class="auth-close" id="authClose">&times;</button>
+            </div>
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Login</div>
+                <div class="auth-tab" data-tab="signup">Sign Up</div>
+            </div>
+            <div class="auth-body">
+                <form class="auth-form active" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="Enter your email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <button type="submit" class="auth-btn login-btn">Login</button>
+                    <div class="auth-footer">
+                        <p>Don't have an account? <span class="auth-toggle" data-tab="signup">Sign up</span></p>
+                    </div>
+                </form>
+                
+                <form class="auth-form" id="signupForm">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" placeholder="Enter your full name">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail" placeholder="Enter your email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPhone">Phone Number</label>
+                        <input type="tel" id="signupPhone" placeholder="Enter your phone number">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" placeholder="Create a password">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirmPassword">Confirm Password</label>
+                        <input type="password" id="signupConfirmPassword" placeholder="Confirm your password">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <button type="submit" class="auth-btn signup-btn">Create Account</button>
+                    <div class="auth-footer">
+                        <p>Already have an account? <span class="auth-toggle" data-tab="login">Login</span></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-wave"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Spice Delight</h3>
+                    <p>Bringing authentic South Indian flavors to your doorstep since 2023. Our mission is to preserve traditional recipes while delivering modern convenience.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#menu"><i class="fas fa-chevron-right"></i> Menu</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Temple Street, Chennai, TN 600001</li>
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-envelope"></i> info@spicedelight.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sun: 7:00 AM - 11:00 PM</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for special offers and updates</p>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your email address">
+                    </div>
+                    <button class="btn" style="width: 100%;">Subscribe</button>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Spice Delight. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> in India
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Menu Data categorized by meal time with all requested items
+        const menuData = {
+            chaat: [
+                {
+                    id: 1,
+                    name: "Filter Coffee",
+                    description: "Traditional South Indian filter coffee with rich aroma",
+                    price: 20,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_4Qn3LryFISqpFq1q1KszCXYT3U6iysAbEA&s",
+                    special: true
+                },
+                {
+                    id: 2,
+                    name: "Tea",
+                    description: "Hot refreshing tea with aromatic spices",
+                    price: 15,
+                    image: "https://www.sharmispassions.com/wp-content/uploads/2012/12/cardamom-tea4.jpg",
+                    special: true
+                },
+                {
+                    id: 3,
+                    name: "Masala Tea",
+                    description: "Tea with blend of aromatic spices and herbs",
+                    price: 20,
+                    image: "https://www.dhampurgreen.com/cdn/shop/products/GurMasalaChaiBox_3.jpg?v=1687004324&width=1445",
+                    special: true
+                },
+                {
+                    id: 4,
+                    name: "Black Tea",
+                    description: "Plain tea without milk, strong and refreshing",
+                    price: 12,
+                    image: "https://images.ctfassets.net/e8bhhtr91vp3/4v9X0NPdU6zsq1UwHXfYpV/01f6e8e5099ed9a7a9d7bf336d76b1fd/image.png?w=800&q=80",
+                    special: false
+                },
+                {
+                    id: 5,
+                    name: "Black Coffee",
+                    description: "Strong black coffee without milk",
+                    price: 12,
+                    image: "https://weaverscoffee.com/cdn/shop/articles/1_957x.png?v=1568421338",
+                    special: false
+                },
+                {
+                    id: 6,
+                    name: "Boost",
+                    description: "Nutritious malt-based health drink",
+                    price: 22,
+                    image: "https://www.aimdbazaar.com/wp-content/uploads/2023/09/Boost-Drnk.png",
+                    special: false
+                },
+                {
+                    id: 7,
+                    name: "Horlicks",
+                    description: "Malted milk drink with essential nutrients",
+                    price: 22,
+                    image: "https://mir-s3-cdn-cf.behance.net/projects/404/eba9a1110858033.Y3JvcCwxMTk0LDkzMywwLDA.png",
+                    special: false
+                },
+                {
+                    id: 8,
+                    name: "Medu Vadai",
+                    description: "Crispy lentil doughnuts with soft interior",
+                    price: 8,
+                    image: "https://vaya.in/recipes/wp-content/uploads/2018/02/dreamstime_xs_44383666.jpg",
+                    special: true
+                },
+                {
+                    id: 9,
+                    name: "Paruppu Vadai",
+                    description: "Crispy fried lentil fritters with spices",
+                    price: 8,
+                    image: "https://www.indianhealthyrecipes.com/wp-content/uploads/2015/08/masala-vada-1.jpg",
+                    special: true
+                },
+                {
+                    id: 10,
+                    name: "Potato Bonda",
+                    description: "Deep fried potato balls coated in gram flour batter",
+                    price: 8,
+                    image: "https://www.archanaskitchen.com//images/archanaskitchen/1-Author/Madhuli_Ajay/Aloo_Bonda_Deep_fried_snack_made_with_potato_filling_and_gram_flour_batter.jpg",
+                    special: false
+                },
+                {
+                    id: 11,
+                    name: "Pacha Payaru",
+                    description: "Steamed green gram salad with coconut and spices",
+                    price: 25,
+                    image: "https://www.onegreenplanet.org/wp-content/uploads/2017/11/moong-dal-sundal3s.jpg",
+                    special: true
+                },
+                {
+                    id: 12,
+                    name: "Mocca Payaru",
+                    description: "Steamed black-eyed peas with coconut and spices",
+                    price: 25,
+                    image: "https://i.ytimg.com/vi/YMqdU3oVpMY/maxresdefault.jpg",
+                    special: false
+                },
+                {
+                    id: 13,
+                    name: "Chana Sundal",
+                    description: "Steamed chickpeas tempered with spices and coconut",
+                    price: 25,
+                    image: "https://www.allrecipes.com/thmb/WdQzwYsrWX0-6zRprlfn7OitWN8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/81548-roasted-chickpeas-ddmfs-0442-1x2-hero-295c03efec90435a8588848f7e50f0bf.jpg",
+                    special: false
+                },
+                {
+                    id: 14,
+                    name: "Kala Chana Sundal",
+                    description: "Steamed black chickpeas with coconut and spices",
+                    price: 20,
+                    image: "https://i.pinimg.com/736x/47/6a/9e/476a9e431ba681498aa8ce4ed9e1426c.jpg",
+                    special: false
+                },
+                {
+                    id: 15,
+                    name: "Kesari",
+                    description: "Sweet semolina pudding with saffron and dry fruits",
+                    price: 25,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0kuBQ9KtR_sRbRyPpa_bHiEzSqUvUhycD1w&s",
+                    special: true
+                },
+                {
+                    id: 16,
+                    name: "Corn Sundal",
+                    description: "Steamed corn kernels with coconut and spices",
+                    price: 20,
+                    image: "https://www.vegrecipesofindia.com/wp-content/uploads/2017/03/sweet-corn-sundal-recipe-2.jpg",
+                    special: false
+                },
+                {
+                    id: 17,
+                    name: "Vegetable Puff",
+                    description: "Flaky pastry stuffed with spiced vegetable filling",
+                    price: 15,
+                    image: "https://cookwithrenu.com/wp-content/uploads/2021/02/Veg-Puff_Featured-Image.jpg",
+                    special: false
+                },
+                {
+                    id: 18,
+                    name: "Egg Puff",
+                    description: "Flaky pastry stuffed with spiced egg filling",
+                    price: 20,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxj_vfyiBB1XV9mnfRL5nWP3dktqZiM9N7yQ&s",
+                    special: false
+                },
+                {
+                    id: 19,
+                    name: "Chicken Puff",
+                    description: "Flaky pastry stuffed with spiced chicken filling",
+                    price: 25,
+                    image: "https://thedizzycook.com/wp-content/uploads/2022/12/chicken-puff-pastry.jpg",
+                    special: true
+                },
+                {
+                    id: 20,
+                    name: "Mirchi Bajji",
+                    description: "Deep fried chili fritters coated in gram flour batter",
+                    price: 8,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFUnV2aKKJtL0mSbM-6XfvD2gp0uyhheBr0Q&s",
+                    special: false
+                },
+                {
+                    id: 21,
+                    name: "Potato Bajji",
+                    description: "Deep fried potato slices coated in gram flour batter",
+                    price: 8,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwgq7-YQTrFk-d_L1e-B7Hr6WALzBJ5tH24teZgA0bj68tm9UBs6mneD-KAk2-3Lt9tX4&usqp=CAU",
+                    special: false
+                },
+                {
+                    id: 22,
+                    name: "Onion Bajji",
+                    description: "Deep fried onion fritters coated in gram flour batter",
+                    price: 8,
+                    image: "https://www.kitchensanctuary.com/wp-content/uploads/2021/01/Onion-Bhaji-square-FS-23.jpg",
+                    special: false
+                },
+                {
+                    id: 23,
+                    name: "Pani Puri",
+                    description: "Crisp puris filled with spicy tamarind water and potatoes",
+                    price: 25,
+                    image: "https://cdn1.foodviva.com/static-content/food-images/snacks-recipes/pani-puri/pani-puri.jpg",
+                    special: true
+                },
+                {
+                    id: 24,
+                    name: "Bhel Puri",
+                    description: "Puffed rice mixed with vegetables and tangy chutneys",
+                    price: 30,
+                    image: "https://foodtrails25.com/wp-content/uploads/2021/05/Bhel-Poori.jpg",
+                    special: false
+                },
+                {
+                    id: 25,
+                    name: "Samosa",
+                    description: "Crispy pastry stuffed with spiced potato filling",
+                    price: 10,
+                    image: "https://c.ndtvimg.com/2023-03/0m65kep_samosa_625x300_10_March_23.jpg",
+                    special: false
+                }
+            ],
+            breakfast: [
+                {
+                    id: 26,
+                    name: "Idli",
+                    description: "Soft steamed rice cakes served with sambar and chutney",
+                    price: 7,
+                    image: "https://maayeka.com/wp-content/uploads/2013/10/soft-idli-recipe.jpg",
+                    special: true
+                },
+                {
+                    id: 27,
+                    name: "Plain Dosa",
+                    description: "Crispy rice crepe served with sambar and chutney",
+                    price: 35,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7P9-ECimzMDQMWGiu2XnSWErvEqRmz5rTaw&s",
+                    special: false
+                },
+                {
+                    id: 28,
+                    name: "Masala Dosa",
+                    description: "Crispy rice crepe stuffed with spiced potato filling",
+                    price: 40,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYzFmNURXe3pasWFzWq3p4E9e5xQXPXxQzycmDImoaKFeDNnnaqcLo92Q_TLcUVBzPLcM&usqp=CAU",
+                    special: true
+                },
+                {
+                    id: 29,
+                    name: "Ghee Dosa",
+                    description: "Crispy rice crepe cooked with pure ghee",
+                    price: 60,
+                    image: "https://selfiefamily.com/wp-content/uploads/2021/03/Ghee-Dosa-Sri-Vishnu-Bhavan.jpg",
+                    special: true
+                },
+                {
+                    id: 30,
+                    name: "Onion Dosa",
+                    description: "Crispy rice crepe topped with onions and green chilies",
+                    price: 50,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdDiTNN_pNgSJjpa76Mi9wVPwuP-iwa1RD_g&s",
+                    special: false
+                },
+                {
+                    id: 31,
+                    name: "Rava Dosa",
+                    description: "Crispy semolina crepe with golden texture",
+                    price: 50,
+                    image: "https://rakskitchen.net/wp-content/uploads/2016/03/Rava-dosai-recipe-500x500.jpg",
+                    special: true
+                },
+                {
+                    id: 32,
+                    name: "Set Dosa",
+                    description: "Soft, fluffy dosas served in a set of 3",
+                    price: 40,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRpOuOoaxHgLzKwiJ8oooMAO40_k0HFMJJSg&s",
+                    special: false
+                },
+                {
+                    id: 33,
+                    name: "Uttapam",
+                    description: "Thick rice pancake topped with vegetables",
+                    price: 35,
+                    image: "https://c.ndtvimg.com/2022-08/4i2h41mo_uttapam_625x300_10_August_22.jpg",
+                    special: false
+                },
+                {
+                    id: 34,
+                    name: "Ven Pongal",
+                    description: "Comforting rice and lentil porridge with ghee",
+                    price: 40,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQurdrg9psTexh_4QHu8GtMg4L4RIT6SE_b0g&s",
+                    special: true
+                },
+                {
+                    id: 35,
+                    name: "Puttu",
+                    description: "Steamed rice cakes with coconut - Kerala specialty",
+                    price: 25,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTovaiUo4pcVfoTln4fwO8r0j886RK2QvJ2GA&s",
+                    special:true
+                },
+                {
+                    id: 36,
+                    name: "Appam",
+                    description: "Lacy rice hoppers with soft center and crispy edges",
+                    price: 25,
+                    image: "https://i0.wp.com/www.chitrasfoodbook.com/wp-content/uploads/2016/11/appam-recipe.jpg?w=1200&ssl=1",
+                    special: false
+                },
+                {
+                    id: 37,
+                    name: "Poori",
+                    description: "Deep fried puffed bread served with potato curry",
+                    price: 35,
+                    image: "https://www.awesomecuisine.com/wp-content/uploads/2020/03/poori-masala-kizhangu.jpg",
+                    special:true
+                },
+                {
+                    id: 38,
+                    name: "Chapati",
+                    description: "Soft whole wheat flatbread",
+                    price: 15,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS33l_OiFZ104dhXWVWFKotjLRugtIuf7JCsg&s",
+                    special: false
+                },
+                {
+                    id: 39,
+                    name: "Idiyappam",
+                    description: "String hoppers made from rice flour",
+                    price: 20,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJZjW_U6Hb_hofDRY2FYuF0lV0UsIeJE3UT0VprpgvqwScIkajsFk06fUOXYbD3tEKL6I&usqp=CAU",
+                    special: true
+                },
+                {
+                    id: 40,
+                    name: "Upma",
+                    description: "Semolina cooked with vegetables and mild spices",
+                    price: 25,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdrtTmgN4p0sTKdpAJNDxj6qIv1UKsq-3DdQ&s",
+                    special: false
+                },
+                {
+                    id: 41,
+                    name: "Curd Vadai",
+                    description: "Lentil doughnuts soaked in seasoned yogurt",
+                    price: 12,
+                    image: "https://i0.wp.com/www.chitrasfoodbook.com/wp-content/uploads/2016/04/thayir-vadai.jpg?w=1200&ssl=1",
+                    special: false
+                },
+                {
+                    id: 42,
+                    name: "Sambar Vadai",
+                    description: "Lentil doughnuts served with sambar",
+                    price: 10,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwURcLBB4Iwly8T1WHHUrO3-uJIz0E_s3Suw&s",
+                    special: false
+                },
+                {
+                    id: 43,
+                    name: "Bread Omelette",
+                    description: "Fluffy omelette sandwiched between bread slices",
+                    price: 30,
+                    image: "https://b2958125.smushcdn.com/2958125/wp-content/uploads/bread-omelette-recipe-1-5.jpg?lossy=1&strip=1&webp=1",
+                    special: true
+                }
+            ],
+            lunch: [
+                {
+                    id: 44,
+                    name: "Sambar Rice",
+                    description: "Rice cooked with lentils, vegetables and sambar powder",
+                    price: 35,
+                    image: "https://www.ifbappliances.com/media/catalog/product/cache/cbfae812fa3f53c2f8e749eb3dc52e2d/s/a/sambar_rice_desktop_main_image_519x620.jpg",
+                    special: true
+                },
+                {
+                    id: 45,
+                    name: "Curd Rice",
+                    description: "Rice mixed with yogurt and tempered with spices",
+                    price: 35,
+                    image: "https://i0.wp.com/www.chitrasfoodbook.com/wp-content/uploads/2013/12/curd-rice-plate.jpg?w=1200&ssl=1",
+                    special: false
+                },
+                {
+                    id: 46,
+                    name: "Tomato Rice",
+                    description: "Rice cooked with tangy tomato gravy and spices",
+                    price: 35,
+                    image: "https://www.secondrecipe.com/wp-content/uploads/2020/01/tomato-rice.jpg",
+                    special: false
+                },
+                {
+                    id: 47,
+                    name: "Lemon Rice",
+                    description: "Rice tempered with lemon juice and mild spices",
+                    price: 35,
+                    image: "https://veganheaven.org/wp-content/uploads/2023/04/Lemon-Rice-13.jpg",
+                    special: false
+                },
+                {
+                    id: 48,
+                    name: "Puliyodarai",
+                    description: "Tamarind rice with special spice powder",
+                    price: 35,
+                    image: "https://www.sharmispassions.com/wp-content/uploads/2011/06/KovilPuliyodharai6-500x500.jpg",
+                    special: true
+                },
+                {
+                    id: 49,
+                    name: "Coconut Rice",
+                    description: "Fragrant rice cooked with fresh coconut",
+                    price: 40,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf5zKy95nCQrJnBZj5PovOfiquEkM0jWomiQ&s",
+                    special: false
+                },
+                {
+                    id: 50,
+                    name: "South Indian Meals",
+                    description: "Complete meal with rice, sambar, rasam, vegetables, curd and more",
+                    price: 100,
+                    image: "https://i0.wp.com/www.chitrasfoodbook.com/wp-content/uploads/2015/06/south-indian-lunch-menu-1.jpg?w=1200&ssl=1",
+                    special: true
+                },
+                {
+                    id: 51,
+                    name: "Chicken Biryani",
+                    description: "Fragrant basmati rice cooked with chicken and aromatic spices",
+                    price: 120,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHsN8fvdLL39VP0KMuAw6AUHd3gslhbh6Wrw&s",
+                    special: true
+                },
+                {
+                    id: 52,
+                    name: "Mutton Biryani",
+                    description: "Fragrant basmati rice cooked with mutton and aromatic spices",
+                    price: 150,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9TPYfqJbQvuf6K6bETp5fqKVK9Pj0GnIEXA&s",
+                    special: true
+                },
+                {
+                    id: 53,
+                    name: "Chettinad Chicken Curry",
+                    description: "Spicy Chettinad style chicken curry with rice",
+                    price: 150,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSdYkqM5GJLHSlYcwoKA8KiT8ndmgJcamf5A&s",
+                    special: true
+                },
+                {
+                    id: 54,
+                    name: "Mutton Kurma",
+                    description: "Mutton cooked in rich coconut based gravy",
+                    price: 180,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfX_5iJSe3_0um-OThJLpdlQSMi8YvFiguXw&s",
+                    special:true
+                },
+                {
+                    id: 55,
+                    name: "Prawn Masala",
+                    description: "Prawns cooked in spicy masala gravy",
+                    price: 150,
+                    image: "https://i0.wp.com/www.sinamontales.com/dotcord/uploads/2017/09/Easy-Prawn-Masala-Recipe.jpg?fit=1200%2C1600&ssl=1",
+                    special: false
+                },
+                {
+                    id: 56,
+                    name: "Fish Curry",
+                    description: "Fish cooked in tangy and spicy coconut gravy",
+                    price: 150,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR5bv5CUtCfSyCjiwS29HyMoq0FfaCTGxX1A&s",
+                    special: false
+                },
+                {
+                    id: 57,
+                    name: "Chicken Fry",
+                    description: "Crispy fried chicken with spices",
+                    price: 100,
+                    image: "https://i.ytimg.com/vi/GfJn88tOmIM/maxresdefault.jpg",
+                    special: false
+                },
+                {
+                    id: 58,
+                    name: "Mutton Chukka",
+                    description: "Dry mutton fry with aromatic spices",
+                    price: 130,
+                    image: "https://www.sharmispassions.com/wp-content/uploads/2012/08/MuttonSukka5.jpg",
+                    special: true
+                },
+                {
+                    id: 59,
+                    name: "Fish Fry",
+                    description: "Crispy fried fish with spices",
+                    price: 100,
+                    image: "https://www.thetakeiteasychef.com/wp-content/uploads/2017/12/KFF-FI1-Compressed.jpg",
+                    special: false
+                },
+                {
+                    id: 60,
+                    name: "Prawn Fry",
+                    description: "Crispy fried prawns with spices",
+                    price: 100,
+                    image: "https://images.herzindagi.info/image/2024/May/kerala-prawn-fry-recipe.jpg",
+                    special: false
+                }
+            ],
+            dinner: [
+                {
+                    id: 61,
+                    name: "Idli",
+                    description: "Soft steamed rice cakes served with sambar and chutney",
+                    price: 7,
+                    image: "https://maayeka.com/wp-content/uploads/2013/10/soft-idli-recipe.jpg",
+                    special: true
+                },
+                {
+                    id: 62,
+                    name: "Plain Dosa",
+                    description: "Crispy rice crepe served with sambar and chutney",
+                    price: 35,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7P9-ECimzMDQMWGiu2XnSWErvEqRmz5rTaw&s",
+                    special: false
+                },
+                {
+                    id: 63,
+                    name: "Masala Dosa",
+                    description: "Crispy rice crepe stuffed with spiced potato filling",
+                    price: 40,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYzFmNURXe3pasWFzWq3p4E9e5xQXPXxQzycmDImoaKFeDNnnaqcLo92Q_TLcUVBzPLcM&usqp=CAU",
+                    special: true
+                },
+                {
+                    id: 64,
+                    name: "Ghee Dosa",
+                    description: "Crispy rice crepe cooked with pure ghee",
+                    price: 60,
+                    image: "https://selfiefamily.com/wp-content/uploads/2021/03/Ghee-Dosa-Sri-Vishnu-Bhavan.jpg",
+                    special:true
+                },
+                {
+                    id: 65,
+                    name: "Onion Dosa",
+                    description: "Crispy rice crepe topped with onions and green chilies",
+                    price: 50,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdDiTNN_pNgSJjpa76Mi9wVPwuP-iwa1RD_g&s",
+                    special: false
+                },
+                {
+                    id: 66,
+                    name: "Rava Dosa",
+                    description: "Crispy semolina crepe with golden texture",
+                    price: 50,
+                    image: "https://rakskitchen.net/wp-content/uploads/2016/03/Rava-dosai-recipe-500x500.jpg",
+                    special: true
+                },
+                {
+                    id: 67,
+                    name: "Set Dosa",
+                    description: "Soft, fluffy dosas served in a set of 3",
+                    price: 40,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRpOuOoaxHgLzKwiJ8oooMAO40_k0HFMJJSg&s",
+                    special: false
+                },
+                {
+                    id: 68,
+                    name: "Uttapam",
+                    description: "Thick rice pancake topped with vegetables",
+                    price: 35,
+                    image: "https://c.ndtvimg.com/2022-08/4i2h41mo_uttapam_625x300_10_August_22.jpg",
+                    special: false
+                },
+                {
+                    id: 69,
+                    name: "Chapati",
+                    description: "Soft whole wheat flatbread",
+                    price: 15,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS33l_OiFZ104dhXWVWFKotjLRugtIuf7JCsg&s",
+                    special: false
+                },
+                {
+                    id: 70,
+                    name: "Veg Fried Rice",
+                    description: "Fried rice with mixed vegetables and mild spices",
+                    price: 70,
+                    image: "https://images.getrecipekit.com/20220904015448-veg-20fried-20rice.png?aspect_ratio=16:9&quality=90&",
+                    special: false
+                },
+                {
+                    id: 71,
+                    name: "Egg Fried Rice",
+                    description: "Fried rice with scrambled eggs and vegetables",
+                    price: 80,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6neWpM7ukGBYsYMirNNQeDx0IQ8A_jGFEqw&s",
+                    special: false
+                },
+                {
+                    id: 72,
+                    name: "Chicken Fried Rice",
+                    description: "Fried rice with chicken and vegetables",
+                    price: 90,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHKQdU8H0lzv4lxJxEuc6Egakj9cMmjWpZCA&s",
+                    special: true
+                },
+                {
+                    id: 73,
+                    name: "Veg Noodles",
+                    description: "Stir fried noodles with mixed vegetables",
+                    price: 70,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmI7yYt9jplagMqQYIBgFjKFPXUPGH5as2yA&s",
+                    special: false
+                },
+                {
+                    id: 74,
+                    name: "Egg Noodles",
+                    description: "Stir fried noodles with scrambled eggs and vegetables",
+                    price: 80,
+                    image: "https://i.ytimg.com/vi/GxerXnzENc0/maxresdefault.jpg",
+                    special: false
+                },
+                {
+                    id: 75,
+                    name: "Chicken Noodles",
+                    description: "Stir fried noodles with chicken and vegetables",
+                    price: 90,
+                    image: "https://i.ytimg.com/vi/MhzBUy-JOCE/maxresdefault.jpg",
+                    special:true
+                },
+                {
+                    id: 76,
+                    name: "Parotta",
+                    description: "Layered flaky flatbread made with maida",
+                    price: 15,
+                    image: "https://i.pinimg.com/564x/47/74/86/477486f48831cbea4c5298347513e033.jpg",
+                    special: true
+                },
+                {
+                    id: 77,
+                    name: "Kothu Parotta",
+                    description: "Shredded parotta stir fried with eggs and spices",
+                    price: 50,
+                    image: "https://dms.mydukaan.io/original/jpeg/upload_file_service/841e76d9-74f3-4588-accf-5f0bde795117/kothuparotta9.jpg",
+                    special: true
+                },
+                {
+                    id: 78,
+                    name: "Kili Parotta",
+                    description: "Shredded parotta stir fried with chicken and spices",
+                    price: 100,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpm-IJr7YbNYDwrYi0aCHSz-mE7U012n4HVQ&s",
+                    special: true
+                },
+                {
+                    id: 79,
+                    name: "Omelette",
+                    description: "Fluffy eggs cooked with onions and green chilies",
+                    price: 15,
+                    image: "https://manjalbiriyani.com/wp-content/uploads/2023/09/omeltte-recipe.jpg",
+                    special: false
+                },
+                {
+                    id: 80,
+                    name: "Chicken 65",
+                    description: "Deep fried chicken chunks with spicy marinade",
+                    price: 90,
+                    image: "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/03/chicken-65-restaurant-style.jpg",
+                    special: true
+                },
+                {
+                    id: 81,
+                    name: "Mutton Chukka",
+                    description: "Dry mutton fry with aromatic spices",
+                    price: 150,
+                    image: "https://foodieadamandcookieeve.wordpress.com/wp-content/uploads/2015/03/mutton-chukka-2-of-11.jpg",
+                    special: false
+                },
+                {
+                    id: 82,
+                    name: "Prawn Fry",
+                    description: "Crispy fried prawns with spices",
+                    price: 100,
+                    image: "https://images.herzindagi.info/image/2024/May/kerala-prawn-fry-recipe.jpg",
+                    special: false
+                },
+                {
+                    id: 83,
+                    name: "Gobi Manchurian",
+                    description: "Crispy fried cauliflower in tangy sauce",
+                    price: 70,
+                    image: "https://palatesdesire.com/wp-content/uploads/2022/09/dry-gobi-manchurian-recipe@palates-desire.jpg",
+                    special: false
+                },
+                {
+                    id: 84,
+                    name: "Paneer 65",
+                    description: "Deep fried paneer chunks with spicy marinade",
+                    price: 70,
+                    image: "https://i.ytimg.com/vi/gcqZteUmQko/maxresdefault.jpg",
+                    special: true
+                }
+            ],
+            drinks: [
+                {
+                    id: 85,
+                    name: "Buttermilk",
+                    description: "Refreshing spiced buttermilk",
+                    price: 15,
+                    image: "https://www.awesomecuisine.com/wp-content/uploads/2008/11/masala-buttermilk.jpg",
+                    special: false
+                },
+                {
+                    id: 86,
+                    name: "Coconut Water",
+                    description: "Fresh tender coconut water",
+                    price: 60,
+                    image: "https://agridigitale.com/storage/uploads/poster_article1608051280.jpg",
+                    special: false
+                },
+                {
+                    id: 87,
+                    name: "Sugarcane Juice",
+                    description: "Freshly extracted sugarcane juice",
+                    price: 30,
+                    image: "https://ayuvya.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fayuvya_images%2Fblog_image%2FDoes_Sugarcane_Juice_Help_Induce_Periods_Know_its_Benefits_and_Nutritional_Values.webp&w=1080&q=75",
+                    special: false
+                },
+                {
+                    id: 88,
+                    name: "Sol Kadhi",
+                    description: "Refreshing kokum and coconut milk drink",
+                    price: 30,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShwvB5GN4vHub5D3ii19mw8FHfxkkKSWwLwg&s",
+                    special: true
+                },
+                {
+                    id: 89,
+                    name: "Badam Milk",
+                    description: "Milk flavored with almonds and saffron",
+                    price: 20,
+                    image: "https://easyindiancookbook.com/wp-content/uploads/2023/08/badam-milk-indian-almond-milk-9.jpg",
+                    special: true
+                },
+                {
+                    id: 90,
+                    name: "Rose Milk",
+                    description: "Milk flavored with rose syrup",
+                    price: 20,
+                    image: "https://www.vegrecipesofindia.com/wp-content/uploads/2015/03/rose-milk-recipe-1.jpg",
+                    special:true
+                },
+                {
+                    id: 91,
+                    name: "Jamun Juice",
+                    description: "Fresh java plum juice",
+                    price: 40,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMQGJkqXSmype7pzHOUbj_6uB7nZqRhbyRLg&s",
+                    special: false
+                },
+                {
+                    id: 92,
+                    name: "Mango Lassi",
+                    description: "Sweet yogurt drink with mango",
+                    price: 30,
+                    image: "https://www.cookclickndevour.com/wp-content/uploads/2016/05/mango-lassi-recipe-c.jpg",
+                    special: true
+                },
+                {
+                    id: 93,
+                    name: "Lemon Juice",
+                    description: "Refreshing lemon drink with mint",
+                    price: 20,
+                    image: "https://www.bigbasket.com/media/uploads/p/xxl/40254858_2-fresho-lemon-juice-rich-in-vitamin-c-great-for-skin.jpg",
+                    special: false
+                },
+                {
+                    id: 94,
+                    name: "Fruit Mixed Juice",
+                    description: "Mixed fruit juice with seasonal fruits",
+                    price: 30,
+                    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_Kmm8pVRCSejZQPYOKJbRg0nzeq7M5SSmiA&s",
+                    special: true
+                }
+            ]
+        };
+
+        // Cart Data
+        let cart = [];
+        let totalItems = 0;
+        let currentUser = null;
+        let currentCategory = 'chaat';
+
+        // DOM Elements
+        const menuItemsContainer = document.getElementById('menuItems');
+        const cartIcon = document.getElementById('cartIcon');
+        const cartCount = document.getElementById('cartCount');
+        const cartModal = document.getElementById('cartModal');
+        const closeModal = document.getElementById('closeModal');
+        const cartItemsContainer = document.getElementById('cartItems');
+        const totalPriceElement = document.getElementById('totalPrice');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const authModal = document.getElementById('authModal');
+        const loginBtn = document.getElementById('loginBtn');
+        const signupBtn = document.getElementById('signupBtn');
+        const authClose = document.getElementById('authClose');
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const authForms = document.querySelectorAll('.auth-form');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const authModalTitle = document.getElementById('authModalTitle');
+        const authToggleLinks = document.querySelectorAll('.auth-toggle');
+        const paymentOptions = document.querySelectorAll('.payment-option');
+
+        // Render Menu Items by Category
+        function renderMenuItems(category = 'chaat') {
+            currentCategory = category;
+            menuItemsContainer.innerHTML = '';
+            const items = menuData[category];
+            
+            if (items.length === 0) {
+                menuItemsContainer.innerHTML = '<p class="empty-message">No items available in this category</p>';
+                return;
+            }
+            
+            items.forEach((item, index) => {
+                const menuItemElement = document.createElement('div');
+                menuItemElement.classList.add('menu-item');
+                menuItemElement.style.animation = `fadeIn 0.5s ease-out ${index*0.1}s both`;
+                
+                let badge = '';
+                if (item.special) {
+                    badge = '<div class="special-badge"><i class="fas fa-star"></i> Special</div>';
+                }
+                
+                menuItemElement.innerHTML = `
+                    ${badge}
+                    <img src="${item.image}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60'">
+                    <div class="item-info">
+                        <h3>${item.name}</h3>
+                        <p>${item.description}</p>
+                        <div class="item-price">
+                            <span class="price">${item.price.toFixed(2)}</span>
+                            <button class="add-to-cart" data-id="${item.id}">
+                                <i class="fas fa-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                `;
+                menuItemsContainer.appendChild(menuItemElement);
+            });
+
+            // Add event listeners to add-to-cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', addToCart);
+            });
+        }
+
+        // Add item to cart
+        function addToCart(e) {
+            if (!currentUser) {
+                showNotification('Please login to add items to cart');
+                showAuthModal('login');
+                return;
+            }
+            
+            const itemId = parseInt(e.target.getAttribute('data-id'));
+            let item;
+            
+            // Find item in current category first for better performance
+            item = menuData[currentCategory].find(item => item.id === itemId);
+            
+            // If not found in current category, search all categories
+            if (!item) {
+                for (const category in menuData) {
+                    item = menuData[category].find(item => item.id === itemId);
+                    if (item) break;
+                }
+            }
+            
+            if (!item) return;
+            
+            // Check if item already in cart
+            const existingItem = cart.find(cartItem => cartItem.id === itemId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...item,
+                    quantity: 1
+                });
+            }
+            
+            totalItems += 1;
+            updateCart();
+            
+            // Show feedback animation
+            const button = e.target.closest('.add-to-cart');
+            button.innerHTML = '<i class="fas fa-check"></i> Added';
+            button.style.background = 'linear-gradient(45deg, var(--success), #20bf6b)';
+            
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-plus"></i> Add to Cart';
+                button.style.background = 'linear-gradient(45deg, var(--primary), var(--accent))';
+            }, 1000);
+            
+            // Bounce cart icon
+            cartIcon.style.animation = 'bounce 0.8s';
+            setTimeout(() => {
+                cartIcon.style.animation = '';
+            }, 800);
+        }
+
+        // Update cart UI
+        function updateCart() {
+            cartCount.textContent = totalItems;
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart-message">
+                        <i class="fas fa-shopping-basket"></i>
+                        <p>Your cart is empty</p>
+                    </div>
+                `;
+                totalPriceElement.textContent = '0.00';
+                document.getElementById('deliveryDetails').style.display = 'none';
+                return;
+            }
+            
+            document.getElementById('deliveryDetails').style.display = 'block';
+            
+            cartItemsContainer.innerHTML = '';
+            let totalPrice = 0;
+            
+            cart.forEach((item, index) => {
+                totalPrice += item.price * item.quantity;
+                
+                const cartItemElement = document.createElement('div');
+                cartItemElement.classList.add('cart-item');
+                cartItemElement.style.animation = `fadeIn 0.5s ease-out ${index*0.1}s both`;
+                
+                cartItemElement.innerHTML = `
+                    <div class="cart-item-info">
+                        <img src="${item.image}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60'">
+                        <div class="cart-item-details">
+                            <h3>${item.name}</h3>
+                            <p>₹${item.price.toFixed(2)} each</p>
+                        </div>
+                    </div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                        <span class="quantity">${item.quantity}</span>
+                        <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                        <button class="remove-item" data-id="${item.id}" title="Remove item">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <div class="cart-item-price">
+                        ${(item.price * item.quantity).toFixed(2)}
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+            
+            // Add event listeners to quantity buttons
+            document.querySelectorAll('.quantity-btn').forEach(button => {
+                button.addEventListener('click', updateQuantity);
+            });
+            
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', removeItem);
+            });
+            
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+        }
+
+        // Update item quantity
+        function updateQuantity(e) {
+            const itemId = parseInt(e.target.getAttribute('data-id'));
+            const item = cart.find(item => item.id === itemId);
+            
+            if (e.target.classList.contains('plus')) {
+                item.quantity += 1;
+                totalItems += 1;
+            } else if (e.target.classList.contains('minus') && item.quantity > 1) {
+                item.quantity -= 1;
+                totalItems -= 1;
+            }
+            
+            updateCart();
+        }
+
+        // Remove item from cart
+        function removeItem(e) {
+            const itemId = parseInt(e.target.closest('.remove-item').getAttribute('data-id'));
+            const itemIndex = cart.findIndex(item => item.id === itemId);
+            
+            if (itemIndex !== -1) {
+                totalItems -= cart[itemIndex].quantity;
+                cart.splice(itemIndex, 1);
+                updateCart();
+                
+                // Show notification
+                showNotification('Item removed from cart');
+            }
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Checkout
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!');
+                return;
+            }
+            
+            const name = document.getElementById('deliveryName').value;
+            const address = document.getElementById('deliveryAddress').value;
+            
+            if (!name || !address) {
+                showNotification('Please fill in delivery details');
+                return;
+            }
+            
+            const orderDetails = {
+                items: cart,
+                total: parseFloat(totalPriceElement.textContent),
+                delivery: {
+                    name: name,
+                    phone: document.getElementById('deliveryPhone').value,
+                    address: address,
+                    city: document.getElementById('deliveryCity').value,
+                    pincode: document.getElementById('deliveryPincode').value,
+                    instructions: document.getElementById('deliveryInstructions').value
+                },
+                paymentMethod: document.querySelector('.payment-option.active p').textContent,
+                customerEmail: currentUser ? currentUser.email : 'guest@example.com'
+            };
+            
+            // In a real app, you would send this to your backend
+            console.log('Order placed:', orderDetails);
+            
+            // Show order confirmation
+            showOrderConfirmation(orderDetails);
+            
+            // Send order to email (simulated)
+            sendOrderToEmail(orderDetails);
+        }
+
+        // Show order confirmation
+        function showOrderConfirmation(orderDetails) {
+            const confirmationHTML = `
+                <div class="order-confirmation">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Order Placed Successfully!</h3>
+                    <p>Thank you for your order, ${orderDetails.delivery.name}!</p>
+                    <p>Your delicious South Indian food will be prepared fresh and delivered soon.</p>
+                    <p>Order confirmation has been sent to ${orderDetails.customerEmail}</p>
+                    <div class="order-total">
+                        Order Total: ₹${orderDetails.total.toFixed(2)}
+                    </div>
+                </div>
+            `;
+            
+            cartItemsContainer.innerHTML = confirmationHTML;
+            document.getElementById('deliveryDetails').style.display = 'none';
+            document.querySelector('.payment-methods').style.display = 'none';
+            checkoutBtn.style.display = 'none';
+            
+            // Reset cart after 5 seconds
+            setTimeout(() => {
+                cart = [];
+                totalItems = 0;
+                updateCart();
+                cartModal.classList.remove('show');
+                setTimeout(() => {
+                    cartModal.style.display = 'none';
+                }, 300);
+                
+                // Reset checkout UI
+                document.getElementById('deliveryDetails').style.display = 'block';
+                document.querySelector('.payment-methods').style.display = 'block';
+                checkoutBtn.style.display = 'flex';
+                cartItemsContainer.innerHTML = '<p class="empty-cart-message">Your cart is empty</p>';
+            }, 5000);
+        }
+
+        // Simulate sending order to email
+        function sendOrderToEmail(orderDetails) {
+            // In a real app, this would be an API call to your backend
+            console.log(`Sending order confirmation to: smg06032004@gmail.com`);
+            console.log(`Order details sent to email`);
+            
+            // Here you would typically:
+            // 1. Send the order to your backend
+            // 2. Backend would process payment and send email
+            // 3. Frontend would show confirmation
+            
+            // For demo purposes, we're just logging to console
+            const emailContent = `
+                New Order Received!
+                
+                Customer: ${orderDetails.delivery.name}
+                Email: ${orderDetails.customerEmail}
+                Phone: ${orderDetails.delivery.phone}
+                
+                Delivery Address:
+                ${orderDetails.delivery.address}
+                ${orderDetails.delivery.city} - ${orderDetails.delivery.pincode}
+                
+                Special Instructions:
+                ${orderDetails.delivery.instructions || 'None'}
+                
+                Order Items:
+                ${orderDetails.items.map(item => `
+                  - ${item.name} (₹${item.price.toFixed(2)} x ${item.quantity}) = ₹${(item.price * item.quantity).toFixed(2)}
+                `).join('')}
+                
+                Payment Method: ${orderDetails.paymentMethod}
+                Total Amount: ₹${orderDetails.total.toFixed(2)}
+                
+                Thank you for your order!
+            `;
+            
+            console.log('Email content:', emailContent);
+        }
+
+        // Show auth modal with specific tab
+        function showAuthModal(tab) {
+            authModal.style.display = 'flex';
+            setTimeout(() => {
+                authModal.classList.add('show');
+            }, 10);
+            switchAuthTab(tab);
+        }
+
+        // Hide auth modal
+        function hideAuthModal() {
+            authModal.classList.remove('show');
+            setTimeout(() => {
+                authModal.style.display = 'none';
+            }, 300);
+        }
+
+        // Switch between login/signup tabs
+        function switchAuthTab(tab) {
+            authTabs.forEach(authTab => {
+                if (authTab.dataset.tab === tab) {
+                    authTab.classList.add('active');
+                } else {
+                    authTab.classList.remove('active');
+                }
+            });
+            
+            authForms.forEach(form => {
+                if (form.id === `${tab}Form`) {
+                    form.classList.add('active');
+                    authModalTitle.textContent = tab === 'login' ? 'Welcome Back!' : 'Create Account';
+                } else {
+                    form.classList.remove('active');
+                }
+            });
+        }
+
+        // Handle login
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Simple validation
+            if (!email || !password) {
+                showNotification('Please fill in all fields');
+                return;
+            }
+            
+            // In a real app, you would validate with server here
+            currentUser = {
+                name: email.split('@')[0].charAt(0).toUpperCase() + email.split('@')[0].slice(1),
+                email: email
+            };
+            
+            showNotification(`Welcome back, ${currentUser.name}!`);
+            hideAuthModal();
+            loginForm.reset();
+            
+            // Update auth buttons
+            loginBtn.textContent = currentUser.name;
+            signupBtn.textContent = 'Logout';
+            signupBtn.onclick = handleLogout;
+        }
+
+        // Handle signup
+        function handleSignup(e) {
+            e.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const phone = document.getElementById('signupPhone').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+            
+            // Simple validation
+            if (!name || !email || !phone || !password || !confirmPassword) {
+                showNotification('Please fill in all fields');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showNotification('Passwords do not match');
+                return;
+            }
+            
+            // In a real app, you would send this to server
+            currentUser = {
+                name: name,
+                email: email,
+                phone: phone
+            };
+            
+            showNotification(`Welcome to Spice Delight, ${currentUser.name}!`);
+            hideAuthModal();
+            signupForm.reset();
+            switchAuthTab('login');
+            
+            // Update auth buttons
+            loginBtn.textContent = currentUser.name;
+            signupBtn.textContent = 'Logout';
+            signupBtn.onclick = handleLogout;
+        }
+
+        // Handle logout
+        function handleLogout() {
+            currentUser = null;
+            showNotification('Logged out successfully');
+            
+            // Update auth buttons
+            loginBtn.textContent = 'Login';
+            signupBtn.textContent = 'Sign Up';
+            signupBtn.onclick = () => showAuthModal('signup');
+        }
+
+        // Event Listeners
+        // Category tabs
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                renderMenuItems(tab.dataset.category);
+            });
+        });
+
+        // Cart
+        cartIcon.addEventListener('click', () => {
+            if (!currentUser) {
+                showNotification('Please login to view your cart');
+                showAuthModal('login');
+                return;
+            }
+            cartModal.style.display = 'flex';
+            setTimeout(() => {
+                cartModal.classList.add('show');
+            }, 10);
+        });
+
+        closeModal.addEventListener('click', () => {
+            cartModal.classList.remove('show');
+            setTimeout(() => {
+                cartModal.style.display = 'none';
+            }, 300);
+        });
+
+        checkoutBtn.addEventListener('click', checkout);
+
+        // Payment options
+        paymentOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                paymentOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === cartModal) {
+                cartModal.classList.remove('show');
+                setTimeout(() => {
+                    cartModal.style.display = 'none';
+                }, 300);
+            }
+            if (e.target === authModal) {
+                hideAuthModal();
+            }
+        });
+
+        // Auth tabs
+        authTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                switchAuthTab(tab.dataset.tab);
+            });
+        });
+
+        // Auth toggle links
+        authToggleLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchAuthTab(link.dataset.tab);
+            });
+        });
+
+        // Auth buttons
+        loginBtn.addEventListener('click', () => {
+            showAuthModal('login');
+        });
+
+        signupBtn.addEventListener('click', () => {
+            if (currentUser) {
+                handleLogout();
+            } else {
+                showAuthModal('signup');
+            }
+        });
+
+        authClose.addEventListener('click', hideAuthModal);
+
+        // Form submissions
+        loginForm.addEventListener('submit', handleLogin);
+        signupForm.addEventListener('submit', handleSignup);
+
+        // Initialize
+        renderMenuItems();
+    </script>
+</body>
+</html>
